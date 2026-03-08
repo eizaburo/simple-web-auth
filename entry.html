@@ -40,7 +40,13 @@
     <footer>
         footer
     </footer>
-    <script>
+    <script type="module">
+
+        // import
+        import { app } from "./script.js";
+        import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+
+        const auth = getAuth(app);
 
         // 基本要素の取得
         const email = document.getElementById("email");
@@ -50,11 +56,17 @@
         const entry_button = document.getElementById("entry_button");
 
         // buttonのクリックイベント
-        entry_button.addEventListener("click", (e) => {
+        entry_button.addEventListener("click", async (e) => {
+            //標準動作（ページの移動）を防止
             e.preventDefault();
 
-            //サンプル処理
-            alert(`email=${email.value}, password=${password.value}, full_name=${full_name.value}, phone_no=${phone_no.value}`)
+            //入会処理
+            try {
+                await createUserWithEmailAndPassword(auth, email.value, password.value);
+                location.href = "mypage.html";
+            } catch (e) {
+                alert(e.message);
+            }
         });
 
     </script>
