@@ -45,7 +45,7 @@ main{
     padding: 30px;
     border-radius: 10px;
 
-    width: 400px;
+    width: 500px;
     margin: 30px auto;
 
     display: flex;
@@ -73,6 +73,10 @@ form{
     flex-direction: column;
     width: 200px;
     gap: 10px;
+}
+
+form label{
+    font-size: 0.9rem;
 }
 
 form input{
