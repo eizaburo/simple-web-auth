@@ -1,16 +1,16 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     display: flex;
     flex-direction: column;
     height: 100vh;
 }
 
-header{
+header {
     background-color: #333;
     color: #fff;
     display: flex;
@@ -18,29 +18,29 @@ header{
     padding: 20px;
 }
 
-header ul{
+header ul {
     display: flex;
 }
 
-header li{
+header li {
     list-style: none;
 }
 
-header a{
+header a {
     color: #fff;
     text-decoration: none;
     padding: 0 20px;
 }
 
-header a:hover{
+header a:hover {
     color: #aaa;
 }
 
-main{
+main {
     flex: 1;
 }
 
-.common_section{
+.common_section {
     background-color: #eee;
     padding: 30px;
     border-radius: 10px;
@@ -54,12 +54,12 @@ main{
     gap: 10px;
 }
 
-.common_section h1{
+.common_section h1 {
     font-size: 1.5rem;
     margin: 10px;
 }
 
-footer{
+footer {
     background-color: #333;
     color: #fff;
     padding: 20px;
@@ -68,29 +68,35 @@ footer{
 
 /* form なるべくスタイル共通。微調整はインラインで。 */
 
-form{
+form {
     display: flex;
     flex-direction: column;
     width: 200px;
     gap: 10px;
 }
 
-form label{
+form label {
     font-size: 0.9rem;
 }
 
-form input{
+form input {
     padding: 5px;
 }
 
-form button{
+form button {
     padding: 5px;
     margin-top: 20px;
 }
 
-#logout_button{
+#logout_button {
     display: block;
     margin: 20px auto;
     padding: 5px;
     width: 200px;
+}
+
+/* MyPageのチラ見えを防ぐ */
+
+main.hidden {
+    visibility: hidden;
 }

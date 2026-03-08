@@ -17,18 +17,43 @@
             <li><a href="login.html">Login</a></li>
         </ul>
     </header>
-    <main>
+    <main class="hidden">
         <section class="common_section">
             <h1 style="color: #f00;">MyPageページ（認証有り）</h1>
             <p>MyPageです。</p>
-            <p>本日は晴天なり。</p>
-            
+            <p id="my_message">本日は晴天なり。</p>
+
         </section>
         <button id="logout_button">ログアウト</button>
     </main>
     <footer>
         footer
     </footer>
+    <script type="module">
+
+        //import
+        import { app } from "./script.js";
+        import { getAuth, onAuthStateChanged, signOut } from "https://www.gstatic.com/firebasejs/11.4.0/firebase-auth.js";
+        // auth取得
+        const auth = getAuth(app);
+
+        // ログインを確認し、ログイン状態じゃなければ弾く（login.htmlにリダイレクト）。
+        onAuthStateChanged(auth, (user) => {
+            if (!user) {
+                location.href = "login.html";
+            } else {
+                document.getElementById("my_message").textContent = user.email;
+                document.querySelector("main").classList.remove("hidden");
+            }
+        });
+
+        // ログアウト
+        document.getElementById("logout_button").addEventListener("click", async () => {
+            await signOut(auth);
+            // location.href = "login.html";
+        });
+
+    </script>
 </body>
 
 </html>
