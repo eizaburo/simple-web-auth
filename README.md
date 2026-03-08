@@ -1,4 +1,4 @@
-# simple-web-auth
+# simple-web-vanilla-auth
 
 会員登録、認証系の機能を試す際のWebアプリテンプレート。
 
